@@ -1,0 +1,25 @@
+
+state preproc delim '\['  '\]' begin
+	type = `([[:alpha:]]+)(?=[[:space:]]+)`
+	string = `"([^"]+)"`
+end
+
+
+(valquote,string,valquote) = `(")([^"]+)(")`
+
+keyword = `((\+)|(\+\+)|(\#)|(1[ \t]*-[ \t]*0)|(0[ \t]*-[ \t]*1))`
+
+symbol = `([[:digit:]]+(?=[ \t]*)\.\.\.(?=[ \t]*)|[[:digit:]]+(?=[ \t]*)\.(?=[ \t]*))`
+
+
+environment classname delim '\(' '\)' multiline nested begin
+  keyword = `((\+)|(\+\+)|(\#)|(1[ \t]*-[ \t]*0)|(0[ \t]*-[ \t]*1))`
+  environment comment delim '\{' '\}' multiline nested begin
+    comment = ".+"
+  end
+  classname = ".+"
+end
+
+environment comment delim '\{' '\}' multiline nested begin
+  comment = ".+"
+end
