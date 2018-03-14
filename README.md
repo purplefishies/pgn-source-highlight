@@ -31,6 +31,12 @@ cp /usr/bin/source-highlight-esc.sh /usr/bin/source-highlight-esc.sh.bak
 cp source-hightlight-esc.sh /usr/bin
 ```
 
+Then you have to add an entry to lang.map in /usr/share/source-hightlight
+```bash
+echo "pgn = pgn.lang" >> /usr/share/source-hightlight/lang.map
+```
+
+
 and then just do 
 
 ```bash
