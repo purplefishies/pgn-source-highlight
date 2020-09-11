@@ -22,7 +22,7 @@
 colors=$(tput colors)
 
 # /dev/tty doesn't support 256 colors => check $DISPLAY
-if [ "${colors}" -eq 256 -a -n "${DISPLAY}" ]
+if [ "${colors}" -eq 256  ]
 then
 	NB="256"
 else
